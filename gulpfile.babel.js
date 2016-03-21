@@ -4,6 +4,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+import deleteLines from 'gulp-delete-lines';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -53,7 +54,12 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano()))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+		.pipe(deleteLines({
+       'filters': [
+       /<link\s+rel=["']/i
+       ]
+     }))
+		.pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))		
     .pipe(gulp.dest('dist'));
 });
 
