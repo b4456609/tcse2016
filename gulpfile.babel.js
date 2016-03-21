@@ -5,6 +5,7 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 import deleteLines from 'gulp-delete-lines';
+import critical from 'critical';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -59,7 +60,7 @@ gulp.task('html', ['styles', 'scripts'], () => {
        /<link\s+rel=["']/i
        ]
      }))
-		.pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))		
+		.pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
 });
 
@@ -163,7 +164,29 @@ gulp.task('wiredep', () => {
   gulp.src('app/styles/*.less')
 });
 
+gulp.task('critical', function (cb) {
+  critical.generate({
+    base: 'dist/',
+    src: 'index.html',
+		inline: true,
+    css: ['dist/styles/main.css'],
+    dimensions: [{
+      width: 320,
+      height: 480
+    },{
+      width: 768,
+      height: 1024
+    },{
+      width: 1280,
+      height: 960
+    }],
+    minify: true,
+		dest: 'critical.css',
+  });
+});
+
 gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
+  gulp.start('critical');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
