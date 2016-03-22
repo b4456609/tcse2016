@@ -159,15 +159,14 @@ gulp.task('wiredep', () => {
   gulp.src('app/styles/*.less')
 });
 
-gulp.task('critical', function (cb) {
+gulp.task('criticalcss', function (cb) {
   critical.generate({
     base: 'dist/',
     src: 'index.html',
-    css: ['dist/styles/main.css'],
-    dest: 'dist/index.html',
+    css: ['./dist/styles/main.css'],
+    dest: './dist/index.html',
     minify: true,
 		inline: true,
-    extract: true,
     dimensions: [{
       width: 320,
       height: 480
@@ -182,7 +181,7 @@ gulp.task('critical', function (cb) {
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
-  gulp.start('critical');
+  gulp.start('criticalcss');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
