@@ -55,12 +55,7 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano()))
-		.pipe(deleteLines({
-       'filters': [
-       /<link\s+rel=["']/i
-       ]
-     }))
-		.pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+		.pipe($.if('*.html', $.htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true, minifyURLs: true, removeComments: true})))
     .pipe(gulp.dest('dist'));
 });
 
@@ -168,8 +163,11 @@ gulp.task('critical', function (cb) {
   critical.generate({
     base: 'dist/',
     src: 'index.html',
-		inline: true,
     css: ['dist/styles/main.css'],
+    dest: 'dist/index.html',
+    minify: true,
+		inline: true,
+    extract: true,
     dimensions: [{
       width: 320,
       height: 480
@@ -179,9 +177,7 @@ gulp.task('critical', function (cb) {
     },{
       width: 1280,
       height: 960
-    }],
-    minify: true,
-		dest: 'critical.css',
+    }]
   });
 });
 
