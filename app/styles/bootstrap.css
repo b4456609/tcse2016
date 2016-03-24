@@ -12,7 +12,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: 微軟正黑體, "Microsoft JhengHei", sans-serif;
+  font-family: source-han-sans-korean, source-han-sans-traditional, 微軟正黑體, "Microsoft JhengHei", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
