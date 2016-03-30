@@ -79,6 +79,12 @@
 					<li class="page-scroll nav-item">
 						<a href="#thesis">論文徵求</a>
 					</li>
+					<li class="page-scroll nav-item">
+						<a href="#transport">大會地點</a>
+					</li>
+					<li class="page-scroll nav-item">
+						<a href="#live">住宿資訊</a>
+					</li>
 					<!-- <li class="page-scroll nav-item">
 						<a href="#contact">住宿資訊</a>
 					</li> -->
@@ -508,6 +514,109 @@
 			</div>
 		</div>
 	</section>
+	<section class="success shorter-section" id="transport">
+		<div class="container-fluid text-center">
+			<div class="row">
+				<div class="col-xs-12">
+				<h1>大會地點</h1>
+				<p>海洋科技博物館
+					<br>202基隆市中正區北寧路367號</p>
+					<a class="btn btn-primary" style="color:white" href="http://www.nmmst.gov.tw/chhtml/default">官方網站</a>
+			</div>
+			</div>
+		</div>
+	</section>
+	<div id="map" class="container-fluid" style="height: 550px;"></div>
+	<section class="success shorter-section" id="live">
+		<div class="container-fluid text-center">
+			<div class="row">
+				<div class="col-xs-12">
+				<h1>住宿資訊</h1>
+				<p>長榮桂冠酒店(基隆)
+					<br>202基隆市中正區中正路62之1號</p>
+					<a class="btn btn-primary" style="color:white" href="http://www.evergreen-hotels.com/servlet/WUF1_ControllerServlet.do?lang=zh-TW&menu=BRANCH_WUF1&func=INDEX&action=VIEW_INDEX&d1b_Sn=4">官方網站</a>
+			</div>
+			</div>
+		</div>
+	</section>
+	<div id="map2" class="container-fluid" style="height: 550px;"></div>
+	<script defer async src="https://maps.googleapis.com/maps/api/js?callback=init"></script>
+	<script>
+		function init() {
+			var mapOptions = {
+				zoom: 17,
+				scrollwheel: false,
+				draggable: !("ontouchend" in document),
+				center: new google.maps.LatLng(25.140166, 121.797577),
+				styles: [{
+					"stylers": [{
+						"hue": "#1993af"
+					}]
+				}, {
+					"featureType": "road",
+					"elementType": "labels",
+					"stylers": [{
+						"visibility": "off"
+					}]
+				}, {
+					"featureType": "road",
+					"elementType": "geometry",
+					"stylers": [{
+						"lightness": 100
+					}, {
+						"visibility": "simplified"
+					}]
+				}]
+			};
+
+			var mapElement = document.getElementById('map');
+			var map = new google.maps.Map(mapElement, mapOptions);
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(25.140166, 121.797577),
+				map: map,
+				title: ''
+			});
+			map2();
+		}
+
+		function map2() {
+			var mapOptions = {
+				zoom: 17,
+				scrollwheel: false,
+				center: new google.maps.LatLng(25.135122, 121.746055),
+				draggable: !("ontouchend" in document),
+				styles: [{
+					"stylers": [{
+						"hue": "#1993af"
+					}]
+				}, {
+					"featureType": "road",
+					"elementType": "labels",
+					"stylers": [{
+						"visibility": "off"
+					}]
+				}, {
+					"featureType": "road",
+					"elementType": "geometry",
+					"stylers": [{
+						"lightness": 100
+					}, {
+						"visibility": "simplified"
+					}]
+				}]
+			};
+
+			var mapElement = document.getElementById('map2');
+			var map = new google.maps.Map(mapElement, mapOptions);
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(25.135122, 121.746055),
+				map: map,
+				title: ''
+			});
+		}
+	</script>
+
+
 	<!-- Footer -->
 	<footer class="text-center">
 		<div class="footer-above">
