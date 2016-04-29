@@ -30,6 +30,7 @@
     <!-- endbower -->
     <link rel="stylesheet" href="styles/freelancer.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body id="page-top" class="index">
@@ -893,6 +894,50 @@
         </div>
     </section>
     <div id="map" class="container-fluid" style="height: 550px;"></div>
+    <section id="portfolio">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>附近景點</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <h3>忘憂谷</h3>
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://taiwan.net.tw/att/1/big_scenic_spots/pic_1003.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <h3>潮境公園</h3>
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://www.fa.gov.tw/upload/11/2012111512054878372.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <h3>九份</h3>
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://taiwan.net.tw/att/1/big_scenic_spots/pic_290_2.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="shorter-section" id="live">
         <div class="container">
             <div class="row">
@@ -920,6 +965,39 @@
         </div>
     </section>
     <div id="map2" class="container-fluid" style="height: 550px;"></div>
+    <section id="portfolio">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>附近景點</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 portfolio-item">
+                    <h3>基隆廟口夜市</h3>
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://taiwan.net.tw/att/1/big_scenic_spots/pic_298_8.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 portfolio-item">
+                    <h3>中正公園</h3>
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="http://taiwan.net.tw/att/1/big_scenic_spots/pic_634_2.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <script defer async src="https://maps.googleapis.com/maps/api/js?callback=init"></script>
     <script>
     function init() {
@@ -1029,6 +1107,43 @@
             </div>
         </div>
     </footer>
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://use.typekit.net/iar8rxp.js"></script>
     <script>
     try {
@@ -1044,7 +1159,7 @@
     <!-- <script src="/bower_components/bootstrap/js/alert.js"></script> -->
     <script src="/bower_components/bootstrap/js/dropdown.js"></script>
     <!-- <script src="/bower_components/bootstrap/js/tooltip.js"></script> -->
-    <!-- <script src="/bower_components/bootstrap/js/modal.js"></script> -->
+    <script src="/bower_components/bootstrap/js/modal.js"></script>
     <script src="/bower_components/bootstrap/js/transition.js"></script>
     <script src="/bower_components/bootstrap/js/button.js"></script>
     <!-- <script src="/bower_components/bootstrap/js/popover.js"></script> -->
