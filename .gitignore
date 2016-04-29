@@ -10,3 +10,4 @@ ansible.cfg
 web.yml
 cordova/platforms/*
 cordova/plugins/*
+npm-debug.log
