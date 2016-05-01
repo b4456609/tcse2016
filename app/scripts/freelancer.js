@@ -56,7 +56,7 @@ function nightmarketMap() {
         zoom: 16,
         scrollwheel: false,
         draggable: !("ontouchend" in document),
-        center: new google.maps.LatLng(25.1321,121.7444304),
+        center: new google.maps.LatLng(25.1321, 121.7444304),
         styles: [{
             "stylers": [{
                 "hue": "#1993af"
@@ -80,15 +80,35 @@ function nightmarketMap() {
 
     var mapElement = document.getElementById('nightmarket-map');
     var map = new google.maps.Map(mapElement, mapOptions);
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(25.128556, 121.742833),
-        map: map,
-        title: '基隆廟口'
+
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService;
+    directionsDisplay.setMap(map);
+
+    directionsService.route({
+        origin: { lat: 25.135122, lng: 121.746055 }, // Haight.
+        destination: { lat: 25.128556, lng: 121.742833 }, // Ocean Beach.
+        // Note that Javascript allows us to access the constant
+        // using square brackets and a string value as its
+        // "property."
+        travelMode: google.maps.TravelMode.WALKING
+    }, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        } else {
+            console.log('Directions request failed due to ' + status);
+        }
     });
 
-    var marker1 = new google.maps.Marker({
-        position: new google.maps.LatLng(25.135122, 121.746055),
-        map: map,
-        title: '長榮桂冠酒店'
-    });
+    // var marker = new google.maps.Marker({
+    //     position: new google.maps.LatLng(25.128556, 121.742833),
+    //     map: map,
+    //     title: '基隆廟口'
+    // });
+
+    // var marker1 = new google.maps.Marker({
+    //     position: new google.maps.LatLng(25.135122, 121.746055),
+    //     map: map,
+    //     title: '長榮桂冠酒店'
+    // });
 }
