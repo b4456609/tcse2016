@@ -898,17 +898,21 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                <h3 id="registryStep">註冊步驟</h3>
+                    <h3 id="registryStep">註冊步驟</h3>
                 </div>
-                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <h4>步驟一</h4>
-                    <a href="https://script.google.com/macros/s/AKfycbzmwcXa8AEb6bunVvetqIXKPUwvYbby43R5mexb2jJLrk4vvHQU/exec"><button class="btn btn-primary">上傳收據</button></a>
+                    <a href="https://script.google.com/macros/s/AKfycbzmwcXa8AEb6bunVvetqIXKPUwvYbby43R5mexb2jJLrk4vvHQU/exec">
+                        <button class="btn btn-primary">上傳收據</button>
+                    </a>
                 </div>
                 <div class="col-sm-6">
                     <h4>步驟二</h4>
-                    <a href="http://goo.gl/forms/KTRcVLe7ig"><button class="btn btn-primary">填寫註冊基本資料</button></a>
+                    <a href="http://goo.gl/forms/KTRcVLe7ig">
+                        <button class="btn btn-primary">填寫註冊基本資料</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1268,13 +1272,43 @@
         });
     }
     </script>
-    <script src="https://use.typekit.net/iar8rxp.js"></script>
     <script>
-    try {
-        Typekit.load({
-            async: true
-        });
-    } catch (e) {}
+    (function(d) {
+        var tkTimeout = 3000;
+        if (window.sessionStorage) {
+            if (sessionStorage.getItem('useTypekit') === 'false') {
+                tkTimeout = 0;
+            }
+        }
+        var config = {
+                kitId: 'iar8rxp',
+                scriptTimeout: tkTimeout
+            },
+            h = d.documentElement,
+            t = setTimeout(function() {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                if (window.sessionStorage) {
+                    sessionStorage.setItem("useTypekit", "false")
+                }
+            }, config.scriptTimeout),
+            tk = d.createElement("script"),
+            f = false,
+            s = d.getElementsByTagName("script")[0],
+            a;
+        h.className += " wf-loading";
+        tk.src = '//use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function() {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
     </script>
     <!-- build:js scripts/main.js async -->
     <!-- bower:js -->
