@@ -47,16 +47,41 @@ $('.nav-item').click(function() {
 });
 
 $('#keelung-nightmarket').on('show.bs.modal', function() {
-    console.log("modal show");
-    setTimeout(nightmarketMap, 1000);
+    setTimeout(function() {
+      showDirectionMap(25.135122, 121.746055, 25.128556, 121.742833,'nightmarket-map');
+    }, 1000);
 });
 
-function nightmarketMap() {
+$('#park').on('show.bs.modal', function() {
+    setTimeout(function() {
+      showDirectionMap(25.135122, 121.746055, 25.133681, 121.751808,'park-map');
+    }, 1000);
+});
+
+$('#nine').on('show.bs.modal', function() {
+    setTimeout(function() {
+      showDirectionMap(25.140166, 121.797577, 25.110071, 121.845254,'nine-map');
+    }, 1000);
+});
+
+$('#valley').on('show.bs.modal', function() {
+    setTimeout(function() {
+      showDirectionMap(25.140166, 121.797577, 25.145148, 121.798677,'valley-map');
+    }, 1000);
+});
+
+$('#park-near').on('show.bs.modal', function() {
+    setTimeout(function() {
+      showDirectionMap(25.140166, 121.797577, 25.144111, 121.803394,'park-near-map');
+    }, 1000);
+});
+
+function showDirectionMap(x1, y1, x2, y2,id) {
     var mapOptions = {
         zoom: 16,
         scrollwheel: false,
         draggable: !("ontouchend" in document),
-        center: new google.maps.LatLng(25.1321, 121.7444304),
+        center: new google.maps.LatLng(0.5*(x1+x2), 0.5*(y1+y2)),
         styles: [{
             "stylers": [{
                 "hue": "#1993af"
@@ -78,7 +103,7 @@ function nightmarketMap() {
         }]
     };
 
-    var mapElement = document.getElementById('nightmarket-map');
+    var mapElement = document.getElementById(id);
     var map = new google.maps.Map(mapElement, mapOptions);
 
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -86,11 +111,8 @@ function nightmarketMap() {
     directionsDisplay.setMap(map);
 
     directionsService.route({
-        origin: { lat: 25.135122, lng: 121.746055 }, // Haight.
-        destination: { lat: 25.128556, lng: 121.742833 }, // Ocean Beach.
-        // Note that Javascript allows us to access the constant
-        // using square brackets and a string value as its
-        // "property."
+        origin: { lat: x1, lng: y1 },
+        destination: { lat: x2, lng: y2 },
         travelMode: google.maps.TravelMode.WALKING
     }, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
@@ -99,16 +121,4 @@ function nightmarketMap() {
             console.log('Directions request failed due to ' + status);
         }
     });
-
-    // var marker = new google.maps.Marker({
-    //     position: new google.maps.LatLng(25.128556, 121.742833),
-    //     map: map,
-    //     title: '基隆廟口'
-    // });
-
-    // var marker1 = new google.maps.Marker({
-    //     position: new google.maps.LatLng(25.135122, 121.746055),
-    //     map: map,
-    //     title: '長榮桂冠酒店'
-    // });
 }
