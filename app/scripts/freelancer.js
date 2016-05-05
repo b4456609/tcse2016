@@ -125,5 +125,7 @@ function showDirectionMap(x1, y1, x2, y2,id) {
 
   // lazyload
   $(function() {
-    $('.img-responsive').lazyload();
+    $('.img-responsive').lazyload({
+      effect : "fadeIn"
+    });
   });
