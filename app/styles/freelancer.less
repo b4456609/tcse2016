@@ -111,7 +111,12 @@ header {
 	        font-size: 1.5em;
 	    }
 	}
+  // for dropdown hover show
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
 }
+
 
 .dropdown-menu {
 	background-color: #2c3e50;
@@ -126,10 +131,11 @@ header {
       color: @brand-success;
     }
   }
-}
-
-li .active{
-  background-color: #1a242f;
+  .active{
+    a{
+      background-color: #1a242f;
+    }
+  }
 }
 
 .navbar {
