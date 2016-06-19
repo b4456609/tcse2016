@@ -12,6 +12,10 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+.grey{
+  background: #f6f6f6;
+}
+
 html {
   font-family:  "Noto Sans TC Regular", Microsoft JhengHei, "Microsoft JhengHei","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -ms-text-size-adjust: 100%;
