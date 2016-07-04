@@ -27,12 +27,12 @@ $(function() {
 
 // Floating label headings for the contact form
 $(function() {
-    $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-    }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-    }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
+    $('body').on('input propertychange', '.floating-label-form-group', function(e) {
+        $(this).toggleClass('floating-label-form-group-with-value', !!$(e.target).val());
+    }).on('focus', '.floating-label-form-group', function() {
+        $(this).addClass('floating-label-form-group-with-focus');
+    }).on('blur', '.floating-label-form-group', function() {
+        $(this).removeClass('floating-label-form-group-with-focus');
     });
 });
 
@@ -80,25 +80,25 @@ function showDirectionMap(x1, y1, x2, y2,id) {
     var mapOptions = {
         zoom: 16,
         scrollwheel: false,
-        draggable: !("ontouchend" in document),
+        draggable: !('ontouchend' in document),
         center: new google.maps.LatLng(0.5*(x1+x2), 0.5*(y1+y2)),
         styles: [{
-            "stylers": [{
-                "hue": "#1993af"
+            'stylers': [{
+                'hue': '#1993af'
             }]
         }, {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [{
-                "visibility": "off"
+            'featureType': 'road',
+            'elementType': 'labels',
+            'stylers': [{
+                'visibility': 'off'
             }]
         }, {
-            "featureType": "road",
-            "elementType": "geometry",
-            "stylers": [{
-                "lightness": 100
+            'featureType': 'road',
+            'elementType': 'geometry',
+            'stylers': [{
+                'lightness': 100
             }, {
-                "visibility": "simplified"
+                'visibility': 'simplified'
             }]
         }]
     };
@@ -126,6 +126,6 @@ function showDirectionMap(x1, y1, x2, y2,id) {
   // lazyload
   $(function() {
     $('.img-responsive').lazyload({
-      effect : "fadeIn"
+      effect : 'fadeIn'
     });
   });
