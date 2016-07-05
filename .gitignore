@@ -11,3 +11,6 @@ web.yml
 cordova/platforms
 cordova/plugins
 npm-debug.log
+tcseapp/www/*
+tcseapp/platforms/*
+tcseapp/plugins/*
