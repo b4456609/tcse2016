@@ -4,7 +4,7 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
-    "bootstrap": "~3.3.5"
+    "components-font-awesome": "^4.6.3"
   },
   "overrides": {
     "bootstrap": {
