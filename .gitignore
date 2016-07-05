@@ -8,6 +8,6 @@ site
 hosts
 ansible.cfg
 web.yml
-cordova/platforms/*
-cordova/plugins/*
+cordova/platforms
+cordova/plugins
 npm-debug.log
