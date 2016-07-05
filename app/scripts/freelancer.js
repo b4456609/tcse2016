@@ -6,42 +6,61 @@
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
-    $('body').on('click', '.page-scroll a', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
+  $('body').on('click', '.page-scroll a', function(event) {
+    var $anchor = $(this);
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+  });
 });
 
 $(function() {
-    $('body').on('click', '.page-move a', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 90
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
+  $('body').on('click', '.page-move a', function(event) {
+    var $anchor = $(this);
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top - 90
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+  });
 });
 
 // Floating label headings for the contact form
 $(function() {
-    $('body').on('input propertychange', '.floating-label-form-group', function(e) {
-        $(this).toggleClass('floating-label-form-group-with-value', !!$(e.target).val());
-    }).on('focus', '.floating-label-form-group', function() {
-        $(this).addClass('floating-label-form-group-with-focus');
-    }).on('blur', '.floating-label-form-group', function() {
-        $(this).removeClass('floating-label-form-group-with-focus');
-    });
+  $('body').on('input propertychange', '.floating-label-form-group', function(e) {
+    $(this).toggleClass('floating-label-form-group-with-value', !!$(e.target).val());
+  }).on('focus', '.floating-label-form-group', function() {
+    $(this).addClass('floating-label-form-group-with-focus');
+  }).on('blur', '.floating-label-form-group', function() {
+    $(this).removeClass('floating-label-form-group-with-focus');
+  });
 });
 
 // Highlight the top nav as scrolling occurs
 $('body').scrollspy({
-    target: '.navbar-fixed-top'
+  target: '.navbar-fixed-top'
 })
 
 // Closes the Responsive Menu on Menu Item Click
 $('.nav-item').click(function() {
-    $('.navbar-toggle:visible').click();
+  $('.navbar-toggle:visible').click();
+});
+$(function() {
+  $.ajax({
+    url: 'http://www.seat.org.tw/TCSE2016/index.html',
+    dataType: 'html',
+    //jsonp: "mycallback",
+    success: function(data, textStatus, qXHR) {
+      console.log(data);
+      // a = $(data);
+      var el = document.createElement('html');
+      el.innerHTML = data;
+      if (!($('#news').text() === $(el.getElementsByTagName('section')[0]).text())) {
+        $('#news').html(el.getElementsByTagName('section')[0].innerHTML);
+      }
+    },
+    error: function(qXHR, textStatus, errorThrown) {
+      console.log(qXHR, textStatus, errorThrown);
+    }
+  });
 });
