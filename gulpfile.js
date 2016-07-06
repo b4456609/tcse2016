@@ -105,7 +105,7 @@ gulp.task('paper', () => {
     'app/paper/*.*'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist/file'));
+  }).pipe(gulp.dest('dist/paper'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
