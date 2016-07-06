@@ -92,6 +92,14 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
+gulp.task('file', () => {
+  return gulp.src([
+    'app/file/*.*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/file'));
+});
+
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
