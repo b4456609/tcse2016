@@ -100,6 +100,14 @@ gulp.task('file', () => {
   }).pipe(gulp.dest('dist/file'));
 });
 
+gulp.task('paper', () => {
+  return gulp.src([
+    'app/paper/*.*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/file'));
+});
+
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
@@ -187,7 +195,7 @@ gulp.task('criticalcss', function (cb) {
   });
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'file', 'paper'], () => {
   gulp.start('criticalcss');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
