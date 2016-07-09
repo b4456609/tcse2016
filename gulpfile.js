@@ -100,6 +100,14 @@ gulp.task('file', () => {
   }).pipe(gulp.dest('dist/file'));
 });
 
+gulp.task('paper', () => {
+  return gulp.src([
+    'app/paper/*.*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/paper'));
+});
+
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
@@ -166,29 +174,7 @@ gulp.task('wiredep', () => {
   gulp.src('app/styles/*.less');
 });
 
-gulp.task('criticalcss', function (cb) {
-  critical.generate({
-    base: 'dist/',
-    src: 'index.html',
-    css: ['./dist/styles/main.css'],
-    dest: './dist/index.html',
-    minify: true,
-		inline: true,
-    dimensions: [{
-      width: 320,
-      height: 480
-    },{
-      width: 768,
-      height: 1024
-    },{
-      width: 1280,
-      height: 960
-    }]
-  });
-});
-
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  gulp.start('criticalcss');
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'file', 'paper'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
